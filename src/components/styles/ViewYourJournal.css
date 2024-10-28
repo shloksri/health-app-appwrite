@@ -1,0 +1,44 @@
+.view-journal-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.view-journal-container h1 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #ff8fa3;
+}
+
+.view-journal-container h2 {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.view-journal-container p {
+    font-size: 1em;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.back-btn {
+    padding: 10px 20px;
+    background-color: #ffafcc;
+    color: #fff;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.back-btn:hover {
+    background-color: #ff8fa3;
+}

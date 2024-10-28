@@ -1,0 +1,57 @@
+.your-journal-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.journal-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 600px;
+    background-color: #ffdde1;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.journal-form label {
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+.journal-form select,
+.journal-form textarea {
+    margin-bottom: 20px;
+    padding: 10px;
+    font-size: 1em;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    resize: none;
+    transition: border-color 0.2s ease;
+}
+
+.journal-form select:focus,
+.journal-form textarea:focus {
+    border-color: #ff8fa3;
+}
+
+.journal-form textarea {
+    min-height: 150px;
+}
+
+.save-journal-btn {
+    padding: 10px;
+    background-color: #ffafcc;
+    color: white;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.save-journal-btn:hover {
+    background-color: #ff8fa3;
+}

@@ -1,0 +1,55 @@
+.journals-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.create-journal-btn {
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    background-color: #ffafcc;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    font-size: 1.2em;
+}
+
+.create-journal-btn:hover {
+    background-color: #ff8fa3;
+}
+
+.journals-list {
+    width: 100%;
+    max-width: 600px;
+}
+
+.journal-entry {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #ffe3e9;
+    border-radius: 8px;
+    transition: transform 0.2s ease;
+}
+
+.journal-entry:hover {
+    transform: translateY(-2px);
+}
+
+.journal-link {
+    color: #333;
+    text-decoration: none;
+}
+
+.journal-link h3 {
+    margin: 0;
+    font-weight: 600;
+    font-size: 1.2em;
+}
+
+.journal-link p {
+    margin-top: 10px;
+    color: #555;
+}

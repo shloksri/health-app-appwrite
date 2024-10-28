@@ -1,0 +1,20 @@
+[
+    {
+        "username": "user1",
+        "journalID": "journal_1",
+        "moodID": "happy_25102023_1530",
+        "mood": "Happy",
+        "date": "25-10-2023",
+        "time": "15:30",
+        "content": "Had a great day meeting friends and enjoying some time outdoors."
+    },
+    {
+        "username": "user1",
+        "journalID": "journal_2",
+        "moodID": "sad_24102023_1100",
+        "mood": "Sad",
+        "date": "24-10-2023",
+        "time": "11:00",
+        "content": "Feeling a bit low due to personal challenges."
+    }
+]

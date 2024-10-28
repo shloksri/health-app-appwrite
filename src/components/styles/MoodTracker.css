@@ -1,0 +1,91 @@
+.mood-tracker-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    /* Light background for a soothing effect */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #333;
+    /* Dark text for better readability */
+}
+
+label {
+    margin: 10px 0 5px;
+    font-weight: bold;
+    color: #555;
+    /* Medium dark color for labels */
+}
+
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    /* Light border */
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+select:focus,
+textarea:focus {
+    border-color: #007bff;
+    /* Highlight border on focus */
+    outline: none;
+    /* Remove default outline */
+}
+
+.mood-message {
+    margin: 10px 0;
+    font-size: 14px;
+    color: #007bff;
+    /* Blue color for mood message */
+    font-style: italic;
+}
+
+textarea {
+    height: 100px;
+    /* Set a height for the textarea */
+}
+
+input[type="checkbox"] {
+    margin-right: 10px;
+    /* Space between checkbox and label */
+}
+
+button {
+    background-color: #007bff;
+    /* Blue background for the button */
+    color: white;
+    /* White text */
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+    /* Darker blue on hover */
+}
+
+.privacy-notice {
+    margin-top: 20px;
+    font-size: 12px;
+    color: #666;
+    /* Lighter text for the privacy notice */
+    text-align: center;
+}

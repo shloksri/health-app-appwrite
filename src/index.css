@@ -1,0 +1,75 @@
+/* Container and Center Box Styling */
+.home-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f9f9fc;
+  font-family: 'Arial', sans-serif;
+}
+
+.center-box {
+  text-align: center;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+}
+
+.center-question {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: #333333;
+}
+
+/* Options Styling */
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.option-button {
+  display: inline-block;
+  font-size: 1rem;
+  color: #333;
+  text-decoration: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  background-color: #ffffff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.option-button:hover {
+  background-color: #ffd1dc;
+  border-color: #ff85a2;
+  color: #333;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  font-weight: bold;
+}
+
+/* Custom tooltip styling */
+.option-button::after {
+  content: attr(data-hover);
+  position: absolute;
+  bottom: -1.8rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #98a91a;
+  color: #fff;
+  font-size: 0.85rem;
+  padding: 0.4rem 0.6rem;
+  border-radius: 4px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.option-button:hover::after {
+  opacity: 1;
+}

@@ -1,0 +1,102 @@
+[
+    {
+        "id": "happy",
+        "name": "Happy",
+        "description": "That's wonderful! What's bringing you joy today?"
+    },
+    {
+        "id": "sad",
+        "name": "Sad",
+        "description": "Sorry to hear that. Let us know why."
+    },
+    {
+        "id": "anxious",
+        "name": "Anxious",
+        "description": "Take a deep breath. Want to share what's on your mind?"
+    },
+    {
+        "id": "angry",
+        "name": "Angry",
+        "description": "It's okay to feel this way. Feel free to vent here."
+    },
+    {
+        "id": "neutral",
+        "name": "Neutral",
+        "description": "A balanced day? Reflect on what made it so."
+    },
+    {
+        "id": "excited",
+        "name": "Excited",
+        "description": "That's exciting! What's making you feel pumped?"
+    },
+    {
+        "id": "tired",
+        "name": "Tired",
+        "description": "Running low on energy? Let's see what's been tiring you out."
+    },
+    {
+        "id": "grateful",
+        "name": "Grateful",
+        "description": "That's a beautiful feeling. Want to jot down what you're thankful for?"
+    },
+    {
+        "id": "lonely",
+        "name": "Lonely",
+        "description": "Feeling alone? We're here for you. Let's talk about it."
+    },
+    {
+        "id": "stressed",
+        "name": "Stressed",
+        "description": "Tough day? Feel free to unload your thoughts here."
+    },
+    {
+        "id": "hopeful",
+        "name": "Hopeful",
+        "description": "That's great! What's giving you hope today?"
+    },
+    {
+        "id": "confused",
+        "name": "Confused",
+        "description": "Lost in thought? Share what's puzzling you."
+    },
+    {
+        "id": "content",
+        "name": "Content",
+        "description": "Contentment is lovely. What's keeping you balanced?"
+    },
+    {
+        "id": "bored",
+        "name": "Bored",
+        "description": "Looking for something more? Let's reflect on today."
+    },
+    {
+        "id": "inspired",
+        "name": "Inspired",
+        "description": "Feeling inspired? Write down what sparked this energy."
+    },
+    {
+        "id": "overwhelmed",
+        "name": "Overwhelmed",
+        "description": "Feeling swamped? Let's take a moment to unpack things."
+    },
+    {
+        "id": "proud",
+        "name": "Proud",
+        "description": "Pride in yourself is powerful! What accomplishment made your day?"
+    },
+    {
+        "id": "guilty",
+        "name": "Guilty",
+        "description": "It's okay to feel this way. Share what's weighing on you."
+    },
+    {
+        "id": "relieved",
+        "name": "Relieved",
+        "description": "A weight lifted? Share what's bringing you peace."
+    },
+    {
+        "id": "frustrated",
+        "name": "Frustrated",
+        "description": "Rough day? Vent it out here if you'd like."
+    }
+]
