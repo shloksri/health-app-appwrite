@@ -1,82 +1,94 @@
 // YourJournal.js
-import React, { useState, useContext, useEffect } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
-import journalsData from '../data/journals.json';
+import React, { useState, useEffect } from 'react';
 import moodsData from '../data/moods.json';
-import { MoodContext } from '../context/MoodContext';
 import './styles/CreateJournal.css';
 
-const YourJournal = () => {
-    const navigate = useNavigate();
-    const { selectedMood, moodID } = useContext(MoodContext);
-    const location = useLocation(); // Get location object
-    // const [mood, setMood] = useState("");
-    const [mood, setMood] = useState(location.state?.selectedMood || ""); // Set initial mood from location state
-    const [content, setContent] = useState("");
+import { databases } from '../appwrite/config';
+import { useUser } from '../context/UserContext';
 
+const DATABASE_ID = import.meta.env.VITE_DATABASE_ID; // Your Appwrite database ID
+const JOURNALS_COLLECTION_ID = import.meta.env.VITE_COLLECTION_ID_JOURNALS; // Your collection ID
 
-    useEffect(() => {
-        if (location.state?.selectedMood) {
-            setMood(location.state.selectedMood); // Update mood if passed
-        }
-    }, [location.state]);
+function CreateJournal() {
+    const { user } = useUser(); // User context
+    const [journalMood, setJournalMood] = useState('');
+    const [journalContent, setJournalContent] = useState('');
+    const [error, setError] = useState(null);
+    const [success, setSuccess] = useState(null);
 
-    // useEffect(() => {
-    //     if (location.state?.selectedMood) {
-    //         setMood(location.state.selectedMood); // Update mood if passed
-    //     }
-    // }, []);
+    const handleMoodChange = (e) => setJournalMood(e.target.value);
+    const handleContentChange = (e) => setJournalContent(e.target.value);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const newJournalID = `journal_${journalsData.length + 1}`;
-        const currentDate = new Date();
-        const date = currentDate.toLocaleDateString();
-        const time = currentDate.toLocaleTimeString();
+        if (!journalMood || !journalContent) {
+            setError('Please fill out all fields');
+            return;
+        }
 
-        const newJournal = {
-            username: "user1",
-            journalID: newJournalID,
-            moodID: moodID || `journal_${newJournalID}`,
-            mood,
-            date,
-            time,
-            content
-        };
+        try {
+            const response = await databases.createDocument(
+                DATABASE_ID,
+                JOURNALS_COLLECTION_ID,
+                'unique()', // Automatically generate a unique ID for the new document
+                {
+                    userID: user.$id,
+                    journalMood,
+                    journalContent
+                }
+            );
 
-        journalsData.push(newJournal);
-        // Here you can handle adding newJournal to your data source
-
-        navigate('/journals');
+            setJournalMood(''); // Clear input fields after successful submission
+            setJournalContent('');
+            setError(null);
+            setSuccess('Journal submitted successfully!');
+            console.log('New journal entry:', response);
+        } catch (err) {
+            console.error('Error submitting journal:', err);
+            setError('Failed to submit journal.');
+            setSuccess(null);
+        }
     };
 
     return (
-        <div className="your-journal-container">
-            <form onSubmit={handleSubmit} className="journal-form">
-                <label>Mood:</label>
-                <select
-                    value={mood}
-                    onChange={(e) => setMood(e.target.value)}
-                    disabled={!!selectedMood}
-                >
-                    <option value="" disabled>Select your mood</option>
-                    {moodsData.map(m => (
-                        <option key={m.id} value={m.name}>{m.name}</option>
-                    ))}
-                </select>
+        <div>
+            <h2>Submit a New Journal Entry</h2>
+            <form onSubmit={handleSubmit}>
+                <div>
+                    {/* <label htmlFor="mood">Mood:</label>
+                    <input
+                        type="text"
+                        id="mood"
+                        value={journalMood}
+                        onChange={handleMoodChange}
+                        placeholder="Enter your mood"
+                    /> */}
+                    <label htmlFor="mood">Select your mood:</label>
+                    <select id="mood" value={journalMood} onChange={handleMoodChange} required>
+                        <option value="">-- Select Mood --</option>
+                        {moodsData.map(mood => (
+                            <option key={mood.id} value={mood.id}>{mood.name}</option>
+                        ))}
+                    </select>
+                </div>
 
-                <label>Content:</label>
-                <textarea
-                    value={content}
-                    onChange={(e) => setContent(e.target.value)}
-                    placeholder="Write about your day..."
-                ></textarea>
 
-                <button type="submit" className="save-journal-btn">Save your Journal</button>
+                <div>
+                    <label htmlFor="content">Journal Content:</label>
+                    <textarea
+                        id="content"
+                        value={journalContent}
+                        onChange={handleContentChange}
+                        placeholder="Write your journal entry here"
+                    />
+                </div>
+                <button type="submit">Submit Journal</button>
             </form>
+            {error && <p style={{ color: 'red' }}>{error}</p>}
+            {success && <p style={{ color: 'green' }}>{success}</p>}
         </div>
     );
-};
+}
 
-export default YourJournal;
+export default CreateJournal;

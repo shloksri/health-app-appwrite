@@ -1,62 +1,73 @@
-// MoodTracker.js
-import React, { useState, useEffect, useContext } from 'react';
-// import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
 import moodsData from '../data/moods.json';
-import { MoodContext } from '../context/MoodContext';
-import { v4 as uuidv4 } from 'uuid';
-// import { useMood } from '../context/MoodContext'
 import './styles/MoodTracker.css';
+import { databases } from '../appwrite/config';
+import { useUser } from '../context/UserContext';
+
+const DATABASE_ID = import.meta.env.VITE_DATABASE_ID; // Your Appwrite database ID
+const MOODS_COLLECTION_ID = import.meta.env.VITE_COLLECTION_ID_MOODS; // Collection ID for moods
 
 const MoodTracker = () => {
-    const userID = "Shlok01_"; // we will get the userID from state or somewhere
+    const { user } = useUser(); // Get the user context
     const [selectedMood, setSelectedMood] = useState('');
     const [oneLiner, setOneLiner] = useState('');
-    const [moodID, setMoodID] = useState('');
     const [reason, setReason] = useState('');
-    const [dateOfMood, setDateOfMood] = useState('')
-    const [timeOfMood, setTimeOfMood] = useState('')
-    const [isSubmitted, setIsSubmitted] = useState(false)
-
+    const [isSubmitted, setIsSubmitted] = useState(false);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
         if (selectedMood) {
-            const moodidfinder = moodsData.find(m => m.id === selectedMood);
-            if (moodidfinder) {
-                setOneLiner(moodidfinder.description);
+            const mood = moodsData.find(m => m.id === selectedMood);
+            if (mood) {
+                setOneLiner(mood.description);
             }
         }
-    }, [selectedMood, moodID]);
+    }, [selectedMood]);
 
     const handleMoodChange = (e) => {
         setSelectedMood(e.target.value);
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("From Submit - mood : ", selectedMood);
 
-        const currentDate = new Date();
-        const date = currentDate.toLocaleDateString('en-US', {
-            weekday: 'long',
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric',
-        })
-        const time = currentDate.toLocaleTimeString('en-US', {
-            hour: '2-digit',
-            minute: '2-digit'
-        });
-        // const moodID = `${selectedMood}_${currentDate.toLocaleDateString('en-GB').replace(/\//g, '')}_${currentDate.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' }).replace(/:/g, '')}`;
+        // Make sure a user is logged in
+        if (!user) {
+            setError('User not logged in');
+            return;
+        }
 
-        const mood_id = userID + "_" + uuidv4();
-        // alert(`Message\n ${selectedMood} ${dateOfMood}`)
-        // console.log(mood_id);
-        setMoodID(mood_id);
-        setDateOfMood(date)
-        setTimeOfMood(time)
-        setSelectedMood('');
-        setReason('');
-        setOneLiner('');
+        try {
+            const moodEntry = {
+                userID: user.$id,
+                moodValue: selectedMood,
+                moodContent: reason
+            };
+
+            // Add the mood entry to Appwrite database
+            await databases.createDocument(
+                DATABASE_ID,
+                MOODS_COLLECTION_ID,
+                'unique()', // Generate a unique ID for the document
+                moodEntry
+            );
+
+            setIsSubmitted(true);
+            setSelectedMood('');
+            setReason('');
+            setOneLiner('');
+            setError(null);
+
+            // Hide the pop-up after 3 seconds
+            setTimeout(() => setIsSubmitted(false), 3000);
+        } catch (err) {
+            console.error('Failed to submit mood:', err);
+            setError('Failed to submit mood.');
+        }
+    };
+
+    const handleClosePopup = () => {
+        setIsSubmitted(false);
     };
 
     return (
@@ -83,6 +94,15 @@ const MoodTracker = () => {
 
                 <button type="submit">Submit Mood</button>
             </form>
+
+            {isSubmitted && (
+                <div className="popup">
+                    <span className="popup-message">Mood Submitted Successfully!</span>
+                    <button className="close-button" onClick={handleClosePopup}>x</button>
+                </div>
+            )}
+
+            {error && <p className="error">{error}</p>}
         </div>
     );
 };

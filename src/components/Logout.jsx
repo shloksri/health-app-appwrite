@@ -13,16 +13,18 @@ const Logout = () => {
     }
 
     return (
-        <>
+        <div>
             {
                 user ? <>
                     <p>Welcome, {user.name}!</p>
+                    <p>Email: {user.email}</p>
+                    <br />
                     <button onClick={handleLogout}>Logout</button>
                 </> : "Not logged in"
             }
             {/* <p>Welcome, {user.name}!</p>
             <button onClick={handleLogout}>Logout</button> */}
-        </>
+        </div>
     )
 }
 

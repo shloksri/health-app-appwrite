@@ -15,6 +15,7 @@ import FailComponent from './FailComponent';
 import Login from './Login';
 import Logout from './Logout';
 import { useUser } from "../context/UserContext.jsx";
+import MoodsList from './MoodsList.jsx';
 
 
 const App = () => {
@@ -34,6 +35,7 @@ const App = () => {
                             <Routes>
                                 <Route path="/" element={<Home setUser={setUser} />} />
                                 <Route path="/mood-tracker" element={<MoodTracker />} />
+                                <Route path="/moods-list" element={<MoodsList />} />
                                 <Route path="/your-journal/:moodID" component={CreateJournal} />
                                 <Route path="/journals" element={<Journals />} />
                                 <Route path="/journals/new" element={<CreateJournal />} />
