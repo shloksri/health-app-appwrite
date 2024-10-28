@@ -36,10 +36,10 @@ const App = () => {
                                 <Route path="/" element={<Home setUser={setUser} />} />
                                 <Route path="/mood-tracker" element={<MoodTracker />} />
                                 <Route path="/moods-list" element={<MoodsList />} />
-                                <Route path="/your-journal/:moodID" component={CreateJournal} />
+                                {/* <Route path="/your-journal/:moodID" component={CreateJournal} /> */}
                                 <Route path="/journals" element={<Journals />} />
                                 <Route path="/journals/new" element={<CreateJournal />} />
-                                <Route path="/journals/:journalID" element={<ViewYourJournal />} />
+                                {/* <Route path="/journals/:journalID" element={<ViewYourJournal />} /> */}
                                 <Route path="/resources" element={<Resources />} />
                                 <Route path="/reminders" element={<Reminders />} />
                                 <Route path="*" element={<FailComponent />} />

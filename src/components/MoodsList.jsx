@@ -17,6 +17,15 @@ const MoodsList = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [userID, setUserID] = useState(() => user ? user.$id : null)
+    const [selectedMood, setSelectedMood] = useState(null);
+
+
+    const handleMoodClick = (journal) => {
+        setSelectedMood(journal);
+    };
+    const handleCloseView = () => {
+        setSelectedMood(null);
+    };
 
     useEffect(() => {
         console.log("user ID:", user.$id);
@@ -52,15 +61,21 @@ const MoodsList = () => {
             <Link to="/mood-tracker" className="create-journal-btn">Create a New Mood</Link>
             <h2>Moods for User: {user.name}</h2>
             {moods.length > 0 ? (
-                <ul>
-                    {moods.map((mood) => (
-                        <li key={mood.$id}>
-                            <h3>Mood: {mood.moodValue}</h3>
-                            <p>{mood.moodContent}</p>
+                <>
+                    <ul>
+                        {moods.map((mood) => (
+                            <li key={mood.$id} onClick={() => handleMoodClick(journal)} style={{ border: "1px solid black", margin: "10px 0", cursor: "pointer" }}>
+                                <h3>Mood: {mood.moodValue}</h3>
+                                <p>{mood.moodContent.slice(0, 10)} .......</p>
+                            </li>
+                        ))}
+                    </ul>
+                    {/* Pass selected journal to ViewYourJournal */}
+                    {selectedMood && (
+                        <ViewYourJournal mood={selectedMood} onClose={handleCloseView} />
+                    )}
+                </>
 
-                        </li>
-                    ))}
-                </ul>
             ) : (
                 <p>No moods found for this user.</p>
             )}

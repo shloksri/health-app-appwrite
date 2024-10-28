@@ -29,8 +29,11 @@ const Home = () => {
                             <Link to="/moods-list" className="option-button" data-hover="TList of all your moods.">
                                 Your daily moods List
                             </Link>
+                            <Link to="/journals/new" className="option-button" data-hover="Write about your day and organize your thoughts.">
+                                Write in a new Journal
+                            </Link>
                             <Link to="/journals" className="option-button" data-hover="Write about your day and organize your thoughts.">
-                                Write in Your Journal
+                                View your journals
                             </Link>
                             <Link to="/resources" className="option-button" data-hover="Access helpful mental health and wellness resources.">
                                 Wellness Resources
