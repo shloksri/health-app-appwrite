@@ -39,7 +39,7 @@ const Home = () => {
                                 Wellness Resources
                             </Link>
                             <Link to="/reminders" className="option-button" data-hover="Set reminders to help you stay connected and grounded.">
-                                Set Reminders
+                                Your Reminders
                             </Link>
                         </div>
                     </div>

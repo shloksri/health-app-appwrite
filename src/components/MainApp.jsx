@@ -6,7 +6,7 @@ import Home from "./Home";
 import MoodTracker from './MoodTracker';
 import Journals from './Journals';
 import Resources from './tbd/Resources';
-import Reminders from './tbd/Reminders';
+import Reminders from './Reminders.jsx';
 import CreateJournal from './CreateJournal'
 import ViewYourJournal from './ViewYourJournal'
 import Layout from './Layout';
@@ -16,6 +16,7 @@ import Login from './Login';
 import Logout from './Logout';
 import { useUser } from "../context/UserContext.jsx";
 import MoodsList from './MoodsList.jsx';
+import CreateReminder from './CreateReminder.jsx';
 
 
 const App = () => {
@@ -36,12 +37,11 @@ const App = () => {
                                 <Route path="/" element={<Home setUser={setUser} />} />
                                 <Route path="/mood-tracker" element={<MoodTracker />} />
                                 <Route path="/moods-list" element={<MoodsList />} />
-                                {/* <Route path="/your-journal/:moodID" component={CreateJournal} /> */}
                                 <Route path="/journals" element={<Journals />} />
                                 <Route path="/journals/new" element={<CreateJournal />} />
-                                {/* <Route path="/journals/:journalID" element={<ViewYourJournal />} /> */}
                                 <Route path="/resources" element={<Resources />} />
                                 <Route path="/reminders" element={<Reminders />} />
+                                <Route path="/reminders/new" element={<CreateReminder />} />
                                 <Route path="*" element={<FailComponent />} />
                             </Routes>
                         </Layout>
