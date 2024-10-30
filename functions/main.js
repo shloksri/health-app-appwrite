@@ -7,6 +7,8 @@ const COLLECTION_ID_ALLUSERS = process.env.VITE_COLLECTION_ID_ALLUSERS
 
 export default async ({ req, res, log, error }) => {
 
+    log(`Shlok logs IDs: Project: ${PROJECT_ID}, Database: ${DATABASE_ID}, Collection: ${COLLECTION_ID_ALLUSERS}`)
+    error(`Shlok logs errors: Project: ${PROJECT_ID}, Database: ${DATABASE_ID}, Collection: ${COLLECTION_ID_ALLUSERS}`)
     const client = new Client()
     client
         .setEndpoint('https://cloud.appwrite.io/v1')
