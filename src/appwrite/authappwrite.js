@@ -5,8 +5,8 @@ export const loginWithGoogle = async () => {
     try {
         await account.createOAuth2Session(
             OAuthProvider.Google,
-            'https://health-app-appwrite.vercel.app/',
-            'https://health-app-appwrite.vercel.app/fail')
+            'http://localhost:5173/',
+            'http://localhost:5173/fail')
     } catch (error) {
         console.error(error)
     }

@@ -66,48 +66,44 @@ function Journals() {
                     <>
                         <h6 className='heading-level-7'>Below are your previous journals. Please click on any of them to view the details</h6>
                         {/* table starts */}
-                        <div class="table" role="table">
-                            <div class="table-thead" role="rowheader">
-                                <div class="table-row" role="row">
-                                    <div class="table-thead-col" role="columnheader">
-                                        <span class="eyebrow-heading-3">Date</span>
+                        <div className="table" role="table">
+                            <div className="table-thead" role="rowheader">
+                                <div className="table-row" role="row">
+                                    <div className="table-thead-col" role="columnheader">
+                                        <span className="eyebrow-heading-3">Date</span>
                                     </div>
-                                    <div class="table-thead-col is-only-desktop" role="columnheader">
-                                        <span class="eyebrow-heading-3">Mood</span>
+                                    <div className="table-thead-col is-only-desktop" role="columnheader">
+                                        <span className="eyebrow-heading-3">Mood</span>
                                     </div>
-                                    <div class="table-thead-col is-only-desktop" role="columnheader">
-                                        <span class="eyebrow-heading-3">Time</span>
+                                    <div className="table-thead-col is-only-desktop" role="columnheader">
+                                        <span className="eyebrow-heading-3">Time</span>
                                     </div>
-                                    <div class="table-thead-col is-only-desktop" role="columnheader">
-                                        <span class="eyebrow-heading-3">Content</span>
+                                    <div className="table-thead-col is-only-desktop" role="columnheader">
+                                        <span className="eyebrow-heading-3">Content</span>
                                     </div>
 
                                 </div>
                             </div>
 
                             {journals.map((journal) => (
-
-                                <>
-
-                                    <div key={journal.$id} onClick={() => handleJournalClick(journal)} class="table-tbody" role="rowgroup">
-                                        <a class="table-row" role="row">
-                                            <div class="table-col" role="cell" data-title="Name">
-                                                <div class="u-inline-flex u-cross-center u-gap-12">
-                                                    <span class="text u-break-word u-line-height-1-5">{formatDate(dateValue, journal.$createdAt)}</span>
-                                                </div>
+                                <div key={journal.$id} onClick={() => handleJournalClick(journal)} className="table-tbody" role="rowgroup">
+                                    <a className="table-row" role="row">
+                                        <div className="table-col" role="cell" data-title="Name">
+                                            <div className="u-inline-flex u-cross-center u-gap-12">
+                                                <span className="text u-break-word u-line-height-1-5">{formatDate(dateValue, journal.$createdAt)}</span>
                                             </div>
-                                            <div class="table-col is-only-desktop" role="cell" data-title="Type">
-                                                <span class="text u-break-word u-line-height-1-5">{journal.journalMood}</span>
-                                            </div>
-                                            <div class="table-col is-only-desktop" role="cell" data-title="Size">
-                                                <time class="text">{formatDate(timeValue, journal.$createdAt)}</time>
-                                            </div>
-                                            <div class="table-col is-only-desktop" role="cell" data-title="Created">
-                                                <span class="text">{journal.journalContent.slice(0, 100)} .......</span>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </>
+                                        </div>
+                                        <div className="table-col is-only-desktop" role="cell" data-title="Type">
+                                            <span className="text u-break-word u-line-height-1-5">{journal.journalMood}</span>
+                                        </div>
+                                        <div className="table-col is-only-desktop" role="cell" data-title="Size">
+                                            <time className="text">{formatDate(timeValue, journal.$createdAt)}</time>
+                                        </div>
+                                        <div className="table-col is-only-desktop" role="cell" data-title="Created">
+                                            <span className="text">{journal.journalContent.slice(0, 100)} .......</span>
+                                        </div>
+                                    </a>
+                                </div>
                             ))}
 
 

@@ -1,6 +1,5 @@
 // MoodTracker.js
 import React, { useState, useEffect } from 'react';
-import moodsData from '../data/moods.json';
 import './styles/MoodTracker.css';
 import { Link } from 'react-router-dom';
 import './styles/Journals.css';
@@ -65,51 +64,45 @@ const MoodsList = () => {
                     <>
                         <h6 className='heading-level-7'>Check in on your daily moods below</h6>
                         {/* table starts */}
-                        <div class="table" role="table">
-                            <div class="table-thead" role="rowheader">
-                                <div class="table-row" role="row">
-                                    <div class="table-thead-col" role="columnheader">
-                                        <span class="eyebrow-heading-3">Date</span>
+                        <div className="table" role="table">
+                            <div className="table-thead" role="rowheader">
+                                <div className="table-row" role="row">
+                                    <div className="table-thead-col" role="columnheader">
+                                        <span className="eyebrow-heading-3">Date</span>
                                     </div>
-                                    <div class="table-thead-col is-only-desktop" role="columnheader">
-                                        <span class="eyebrow-heading-3">Mood</span>
+                                    <div className="table-thead-col is-only-desktop" role="columnheader">
+                                        <span className="eyebrow-heading-3">Mood</span>
                                     </div>
-                                    <div class="table-thead-col is-only-desktop" role="columnheader">
-                                        <span class="eyebrow-heading-3">Time</span>
+                                    <div className="table-thead-col is-only-desktop" role="columnheader">
+                                        <span className="eyebrow-heading-3">Time</span>
                                     </div>
-                                    <div class="table-thead-col is-only-desktop" role="columnheader">
-                                        <span class="eyebrow-heading-3">Content</span>
+                                    <div className="table-thead-col is-only-desktop" role="columnheader">
+                                        <span className="eyebrow-heading-3">Content</span>
                                     </div>
 
                                 </div>
                             </div>
 
                             {moods.map((mood) => (
-
-                                <>
-
-                                    <div key={mood.$id} onClick={() => handleMoodClick(journal)} class="table-tbody" role="rowgroup">
-                                        <div class="table-row" role="row">
-                                            <div class="table-col" role="cell" data-title="Name">
-                                                <div class="u-inline-flex u-cross-center u-gap-12">
-                                                    <span class="text u-break-word u-line-height-1-5">{formatDate(dateValue, mood.$createdAt)}</span>
-                                                </div>
-                                            </div>
-                                            <div class="table-col is-only-desktop" role="cell" data-title="Type">
-                                                <span class="text u-break-word u-line-height-1-5">{mood.moodValue}</span>
-                                            </div>
-                                            <div class="table-col is-only-desktop" role="cell" data-title="Size">
-                                                <time class="text">{formatDate(timeValue, mood.$createdAt)}</time>
-                                            </div>
-                                            <div class="table-col is-only-desktop" role="cell" data-title="Created">
-                                                <span class="text">{mood.moodContent} </span>
+                                <div key={mood.$id} onClick={() => handleMoodClick(journal)} className="table-tbody" role="rowgroup">
+                                    <div className="table-row" role="row">
+                                        <div className="table-col" role="cell" data-title="Name">
+                                            <div className="u-inline-flex u-cross-center u-gap-12">
+                                                <span className="text u-break-word u-line-height-1-5">{formatDate(dateValue, mood.$createdAt)}</span>
                                             </div>
                                         </div>
+                                        <div className="table-col is-only-desktop" role="cell" data-title="Type">
+                                            <span className="text u-break-word u-line-height-1-5">{mood.moodValue}</span>
+                                        </div>
+                                        <div className="table-col is-only-desktop" role="cell" data-title="Size">
+                                            <time className="text">{formatDate(timeValue, mood.$createdAt)}</time>
+                                        </div>
+                                        <div className="table-col is-only-desktop" role="cell" data-title="Created">
+                                            <span className="text">{mood.moodContent} </span>
+                                        </div>
                                     </div>
-                                </>
+                                </div>
                             ))}
-
-
                         </div>
                     </>
 

@@ -78,30 +78,30 @@ const MoodTracker = () => {
 
     return (
         <div className="mood-tracker-container">
-            <div class="box login-page-div u-flex u-flex-vertical u-main-center u-cross-center u-row-gap-48 u-margin-inline-64">
+            <div className="box login-page-div u-flex u-flex-vertical u-main-center u-cross-center u-row-gap-48 u-margin-inline-64">
 
-                <form onSubmit={handleSubmit} class="form u-width-full-line u-row-gap-48 u-max-width-500">
-                    <ul class="form-list">
-                        <li class="form-item">
+                <form onSubmit={handleSubmit} className="form u-width-full-line u-row-gap-48 u-max-width-500">
+                    <ul className="form-list">
+                        <li className="form-item">
                             <label htmlFor="mood">Select your mood:</label>
-                            <div class="select u-width-full-line">
+                            <div className="select u-width-full-line">
                                 <select id="mood" value={selectedMood} onChange={handleMoodChange} required>
                                     <option value="">-- Select Mood --</option>
                                     {moodsData.map(mood => (
                                         <option key={mood.id} value={mood.name}>{mood.name}</option>
                                     ))}
                                 </select>
-                                <span class="icon-cheveron-down" aria-hidden="true"></span>
+                                <span className="icon-cheveron-down" aria-hidden="true"></span>
                             </div>
                         </li>
-                        <li class="form-item">
+                        <li className="form-item">
                             <label htmlFor="one-liner"></label>
                             <div key={animationKey} className='one-liner typewriter'>{oneLiner}</div>
                         </li>
-                        <li class="form-item">
+                        <li className="form-item">
                             <label htmlFor="reason">Why do you feel this way?</label>
                             <textarea
-                                class="input-text"
+                                className="input-text"
                                 id="reason"
                                 value={reason}
                                 onChange={(e) => setReason(e.target.value)}
@@ -110,7 +110,7 @@ const MoodTracker = () => {
                             />
                         </li>
                     </ul>
-                    <button type="submit" class='button is-secondary'>Submit Mood</button>
+                    <button type="submit" className='button is-secondary'>Submit Mood</button>
                 </form>
 
                 {isSubmitted && (
@@ -118,12 +118,12 @@ const MoodTracker = () => {
                         <span className="popup-message">Mood Submitted Successfully!</span>
 
                         <button
-                            class="button is-text is-only-icon"
+                            className="button is-text is-only-icon"
 
                             aria-label="Remove item"
                             onClick={handleClosePopup}
                         >
-                            <span class="icon-x" aria-hidden="true"></span>
+                            <span className="icon-x" aria-hidden="true"></span>
                         </button>
                     </div>
                 )}

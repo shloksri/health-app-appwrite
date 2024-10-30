@@ -8,23 +8,17 @@ const Layout = ({ children }) => {
 
     return (
         <div>
-            {/* 
-            
-            login-page-div u-flex-vertical u-flex u-main-center u-cross-center u-column-gap-80 u-margin-block-32 u-margin-inline-128 u-padding-96
-            */}
             {location.pathname !== '/' && (
                 <>
-                    {/* <Link to="/">Back to Home</Link> */}
-
                     <div className='box login-page-div u-margin-inline-64'>
-                        <header class="grid-header">
-                            <div class="grid-header-col-1 heading-level-6 u-cross-child-center">
+                        <header className="grid-header">
+                            <div className="grid-header-col-1 heading-level-6 u-cross-child-center">
                                 <Link to="/">
                                     <button
-                                        class="button is-secondary is-only-icon"
+                                        className="button is-secondary is-only-icon"
                                         aria-label="Add new item"
                                     >
-                                        <span class="icon-home" aria-hidden="true"></span>
+                                        <span className="icon-home" aria-hidden="true"></span>
                                     </button>
                                 </Link>
                             </div>
@@ -33,10 +27,6 @@ const Layout = ({ children }) => {
                 </>
 
             )}
-            {/* <div class="box u-flex u-flex-vertical u-main-center u-cross-center u-row-gap-48 u-margin-inline-64">
-               
-
-            </div> */}
             <main>{children}</main>
         </div>
 

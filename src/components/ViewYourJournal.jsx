@@ -1,6 +1,4 @@
 import React from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import journalsData from '../data/journals.json';
 import './styles/ViewYourJournal.css';
 
 const ViewYourJournal = ({ journal, onClose }) => {

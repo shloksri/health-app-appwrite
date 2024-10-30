@@ -63,28 +63,28 @@ function CreateJournal() {
     return (
         <div>
 
-            <div class="box login-page-div u-flex u-flex-vertical u-main-center u-cross-center u-row-gap-48 u-margin-inline-64">
+            <div className="box login-page-div u-flex u-flex-vertical u-main-center u-cross-center u-row-gap-48 u-margin-inline-64">
                 <h2>Submit a New Journal Entry</h2>
-                <form onSubmit={handleSubmit} class="form u-width-full-line u-row-gap-48 u-max-width-500">
+                <form onSubmit={handleSubmit} className="form u-width-full-line u-row-gap-48 u-max-width-500">
 
-                    <ul class="form-list">
-                        <li class="form-item">
+                    <ul className="form-list">
+                        <li className="form-item">
                             <label htmlFor="mood">Select your mood:</label>
-                            <div class="select u-width-full-line">
+                            <div className="select u-width-full-line">
                                 <select id="mood" value={journalMood} onChange={handleMoodChange} required>
                                     <option value="">-- Select Mood --</option>
                                     {moodsData.map(mood => (
                                         <option key={mood.id} value={mood.name}>{mood.name}</option>
                                     ))}
                                 </select>
-                                <span class="icon-cheveron-down" aria-hidden="true"></span>
+                                <span className="icon-cheveron-down" aria-hidden="true"></span>
                             </div>
                         </li>
 
-                        <li class="form-item">
+                        <li className="form-item">
                             <label htmlFor="reason">Why do you feel this way?</label>
                             <textarea
-                                class="input-text"
+                                className="input-text"
                                 id="content"
                                 value={journalContent}
                                 onChange={handleContentChange}
@@ -93,7 +93,7 @@ function CreateJournal() {
                             />
                         </li>
                     </ul>
-                    <button type="submit" class='button is-secondary'>Submit Journal</button>
+                    <button type="submit" className='button is-secondary'>Submit Journal</button>
                 </form>
                 {error && <p style={{ color: 'red' }}>{error}</p>}
                 {isSubmitted && (
@@ -101,12 +101,12 @@ function CreateJournal() {
                         <span className="popup-message">Journal Submitted Successfully!</span>
 
                         <button
-                            class="button is-text is-only-icon"
+                            className="button is-text is-only-icon"
 
                             aria-label="Remove item"
                             onClick={handleClosePopup}
                         >
-                            <span class="icon-x" aria-hidden="true"></span>
+                            <span className="icon-x" aria-hidden="true"></span>
                         </button>
                     </div>
                 )}
