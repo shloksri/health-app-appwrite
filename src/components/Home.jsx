@@ -31,7 +31,7 @@ const Home = () => {
                                     {
                                         <>
                                             <p>Welcome, {user.name}!</p>
-                                            <p className='disclaimer-login-page body-text-2'>Email: {user.email}</p>
+                                            {/* <p className='disclaimer-login-page body-text-2'>Email: {user.email}</p> */}
                                         </>
                                     }
                                 </h2>
