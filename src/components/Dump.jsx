@@ -10,7 +10,7 @@ const Login = () => {
                         <tr class="table-row">
                             <th class="table-thead-col"><span class="eyebrow-heading-3">Filename</span></th>
                             <th class="table-thead-col">
-                                <p class="eyebrow-heading-3">Type</p>
+                                <p class="eyebrow-heading-3">CHange</p>
                             </th>
                         </tr>
                     </thead>
