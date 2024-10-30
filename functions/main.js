@@ -58,9 +58,9 @@ export default async ({ req, res, log, error }) => {
             log(`User already exists: ${userId} ${userEmail}`);
         }
 
-        res.send('Function executed successfully');
+        return res.send('Function executed successfully');
     } catch (error) {
         console.error(error);
-        res.send('Error occurred: ' + error.message);
+        return res.send('Error occurred: ' + error.message);
     }
 };
