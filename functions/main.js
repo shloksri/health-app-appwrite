@@ -16,7 +16,7 @@ const PROJECT_ID = process.env.VITE_PROJECT_ID
 const DATABASE_ID = process.env.VITE_DATABASE_ID
 const COLLECTION_ID_ALLUSERS = process.env.VITE_COLLECTION_ID_ALLUSERS
 
-export default async (req, res) => {
+export default async ({ req, res, log, error }) => {
     const client = new Client();
 
 
