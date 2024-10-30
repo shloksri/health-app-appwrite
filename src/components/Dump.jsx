@@ -173,6 +173,19 @@ const Login = () => {
             </div>
 
 
+            <div class="u-flex u-main-center u-min-width-100-percent card">
+                <div class="box">1</div>
+                <div class="box">2</div>
+                <div class="box">3</div>
+            </div>
+
+            <div class="u-flex u-main-center u-column-gap-32">
+                <div class="box">1</div>
+                <div class="box">2</div>
+            </div>
+
+
+
             <div class="box u-main-center u-min-width-100-percent card">
 
                 <button className='button' id='b1'>

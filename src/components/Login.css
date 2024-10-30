@@ -1,15 +1,40 @@
-/* #b1 {
+#b1 {
     background-color: hsl(var(--color-neutral-85));
     background-color: hsl(var(--color-neutral-85) / 0.5);
     border: none;
-} */
+}
 
-/* #table-left {
+#table-left {
     background-color: hsl(var(--color-pink-100));
     background-color: hsl(var(--color-pink-100) / 0.5);
     border-radius: var(--border-radius-medium);
-} */
+}
 
+* {
+    font-family: 'Trebuchet MS', sans-serif;
+    color: hsl(var(--color-neutral-100));
+}
+
+.login-with-google {
+    background-color: hsl(var(--color-neutral-0));
+    color: hsl(var(--color-neutral-100));
+    border: 1px solid hsl(var(--color-information-100));
+}
+
+.login-with-google:hover {
+    background-color: hsl(var(--color-neutral-5));
+}
+
+.login-page-div {
+    background-color: hsl(var(--color-neutral-0));
+}
+
+.disclaimer-login-page {
+    font-style: italic;
+    color: hsl(var(--color-neutral-60));
+}
+
+/* 
 * {
     box-sizing: border-box;
     margin: 0;
@@ -69,4 +94,4 @@
     font-size: 14px;
     color: #555;
     text-align: center;
-}
+} */
