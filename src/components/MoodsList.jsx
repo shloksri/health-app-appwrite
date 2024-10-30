@@ -61,10 +61,9 @@ const MoodsList = () => {
         <div>
             <div className='box login-page-div u-flex u-flex-vertical u-main-center u-cross-center u-row-gap-48 u-margin-inline-64'>
                 <Link to="/mood-tracker" className="create-journal-btn">Create a New Mood</Link>
-                <h2>Moods for User: {user.name}</h2>
                 {moods.length > 0 ? (
                     <>
-
+                        <h6 className='heading-level-7'>Check in on your daily moods below</h6>
                         {/* table starts */}
                         <div class="table" role="table">
                             <div class="table-thead" role="rowheader">
@@ -115,7 +114,7 @@ const MoodsList = () => {
                     </>
 
                 ) : (
-                    <p>No moods found for this user.</p>
+                    <p>You are yet to enter your mood. Click on the above button to create one!</p>
                 )}
             </div>
 

@@ -82,7 +82,7 @@ function CreateJournal() {
                         </li>
 
                         <li class="form-item">
-                            <label htmlFor="reason">Journal Content:</label>
+                            <label htmlFor="reason">Why do you feel this way?</label>
                             <textarea
                                 class="input-text"
                                 id="content"

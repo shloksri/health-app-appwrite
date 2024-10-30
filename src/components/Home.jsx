@@ -58,9 +58,6 @@ const Home = () => {
                                     <Link to="/journals/new" className='option-button' data-hover="Write about your day and organize your thoughts.">
                                         Write in a new Journal
                                     </Link>
-                                    <Link to="/resources" className="option-button" data-hover="Access helpful emotional health and wellness resources.">
-                                        Access Wellness Resources
-                                    </Link>
                                 </div>
 
                             </div>

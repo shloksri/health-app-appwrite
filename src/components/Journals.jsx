@@ -61,11 +61,10 @@ function Journals() {
         <div>
             <div className='box login-page-div u-flex u-flex-vertical u-main-center u-cross-center u-row-gap-48 u-margin-inline-64'>
                 <Link to="/journals/new" className="create-journal-btn">Create a New Journal</Link>
-                <h6 className='heading-level-7'>Below are your previous journals. Please click on any of them to view the details</h6>
 
                 {journals.length > 0 ? (
                     <>
-
+                        <h6 className='heading-level-7'>Below are your previous journals. Please click on any of them to view the details</h6>
                         {/* table starts */}
                         <div class="table" role="table">
                             <div class="table-thead" role="rowheader">
@@ -121,7 +120,7 @@ function Journals() {
                     </>
 
                 ) : (
-                    <p>No journals yet. Click on the above button to create one</p>
+                    <p>No journals yet. Click on the above button to create one!</p>
                 )}
             </div>
         </div>
