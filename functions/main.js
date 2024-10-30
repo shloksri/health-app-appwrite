@@ -12,6 +12,7 @@ export default async ({ req, res, log, error }) => {
         .setEndpoint()
         .setProject()
 
+    const db = new Databases(client)
     if (req.method == 'GET') {
         const response = await db.listDocuments(
             DB_ID,
