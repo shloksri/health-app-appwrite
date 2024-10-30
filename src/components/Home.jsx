@@ -35,9 +35,9 @@ const Home = () => {
                                     }
                                 </h2>
                                 <div className="u-flex u-gap-16 u-contents-mobile">
-                                    <button className="grid-header-col-2 button is-big" type="button">
+                                    <button onClick={handleLogout} className="grid-header-col-2 button is-big" type="button">
                                         <span className="icon-logout-left logout-button" aria-hidden="true"></span>
-                                        <span className="text logout-button" onClick={handleLogout}>Logout</span>
+                                        <span className="text logout-button">Logout</span>
                                     </button>
                                 </div>
                             </header>
