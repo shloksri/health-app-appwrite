@@ -1,8 +1,8 @@
 import { Client, Databases } from "node-appwrite";
 
 const PROJECT_ID = '671f17fb0030e3b17ebc'
-const DB_ID = '671f2f4f00014e62eae3'
-const COLLECTION_ID_PROFILES = '671f3276001caa90944d'
+const DB_ID = '672258ee000b485826b6'
+const COLLECTION_ID_PROFILES = '672258f600298c20687b'
 
 
 export default async ({ req, res, log, error }) => {
@@ -20,8 +20,6 @@ export default async ({ req, res, log, error }) => {
         )
         return res.json(response.documents)
     }
-
-
 
     return res.send("Shlok, tesing if user delete worked")
 }
