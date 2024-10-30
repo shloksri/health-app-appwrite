@@ -5,7 +5,7 @@ import { UserProvider } from '../context/UserContext'
 import Home from "./Home";
 import MoodTracker from './MoodTracker';
 import Journals from './Journals';
-import Resources from './tbd/Resources';
+import Resources from './Resources';
 import Reminders from './Reminders.jsx';
 import CreateJournal from './CreateJournal'
 import ViewYourJournal from './ViewYourJournal'
