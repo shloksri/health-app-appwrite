@@ -1,7 +1,6 @@
 {
     "name": "health-app-appwrite",
     "version": "1.0.0",
-    "description": "",
     "main": "main.js",
     "type": "module",
     "scripts": {
@@ -10,7 +9,10 @@
     "dependencies": {
         "@appwrite.io/pink": "^1.0.0",
         "appwrite": "^16.0.2",
-        "node-appwrite": "^7.0.0",
+        "node-appwrite": "^7.0.3",
         "node-fetch": "^2.6.1"
-    }
+    },
+    "author": "",
+    "license": "ISC",
+    "description": ""
 }
