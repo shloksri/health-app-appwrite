@@ -12,12 +12,10 @@ const ViewYourJournal = ({ journal, onClose }) => {
         <div className="view-journal-overlay">
             <div className="view-journal-content">
                 <button className="close-button" onClick={onClose}>x</button>
-
-                <h2>Journal Details</h2>
-
                 <div className="journal-details">
-                    <p><strong>Mood:</strong> {journalMood}</p>
-                    <p><strong>Content:</strong> {journalContent}</p>
+                    <p><strong>You were feeling "</strong> {journalMood}"</p>
+                    <p><strong>Here's why:</strong> <br />
+                        {journalContent}</p>
                 </div>
             </div>
         </div>

@@ -29,11 +29,16 @@
     gap: 1rem;
 }
 
+.link-option-button {
+    /* border: 1px solid hsl(var(--color-information-100)); */
+}
+
 .option-button {
     display: inline-block;
     font-size: 1rem;
     color: #333;
     text-decoration: none;
+    /* text-align: center; */
     padding: 0.8rem 1.5rem;
     border-radius: 8px;
     border: 1px solid #e0e0e0;
@@ -45,9 +50,9 @@
 }
 
 .option-button:hover {
-    background-color: #ffd1dc;
-    border-color: #ff85a2;
-    color: #333;
+    background-color: hsl(var(--color-pink-100));
+    border-color: hsl(var(--color-neutral-100));
+    color: hsl(var(--color-neutral-100));
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
     font-weight: bold;
 }
@@ -59,8 +64,8 @@
     bottom: -1.8rem;
     left: 50%;
     transform: translateX(-50%);
-    background-color: #98a91a;
-    color: #fff;
+    background-color: hsl(var(--color-information-10));
+    color: hsl(var(--color-neutral-100));
     font-size: 0.85rem;
     padding: 0.4rem 0.6rem;
     border-radius: 4px;

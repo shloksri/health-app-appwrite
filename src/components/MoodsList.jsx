@@ -7,6 +7,8 @@ import './styles/Journals.css';
 import { useUser } from '../context/UserContext'
 import { Query } from 'appwrite';
 import { databases } from "../appwrite/config";
+import { dateValue, timeValue, formatDate } from '../appwrite/formatDate'
+
 
 const DATABASE_ID = import.meta.env.VITE_DATABASE_ID; // your Appwrite database ID
 const MOODS_COLLECTION_ID = import.meta.env.VITE_COLLECTION_ID_MOODS; // your collection ID
@@ -57,28 +59,66 @@ const MoodsList = () => {
 
     return (
         <div>
-            <br />
-            <Link to="/mood-tracker" className="create-journal-btn">Create a New Mood</Link>
-            <h2>Moods for User: {user.name}</h2>
-            {moods.length > 0 ? (
-                <>
-                    <ul>
-                        {moods.map((mood) => (
-                            <li key={mood.$id} onClick={() => handleMoodClick(journal)} style={{ border: "1px solid black", margin: "10px 0", cursor: "pointer" }}>
-                                <h3>Mood: {mood.moodValue}</h3>
-                                <p>{mood.moodContent.slice(0, 10)} .......</p>
-                            </li>
-                        ))}
-                    </ul>
-                    {/* Pass selected journal to ViewYourJournal */}
-                    {selectedMood && (
-                        <ViewYourJournal mood={selectedMood} onClose={handleCloseView} />
-                    )}
-                </>
+            <div className='box login-page-div u-flex u-flex-vertical u-main-center u-cross-center u-row-gap-48 u-margin-inline-64'>
+                <Link to="/mood-tracker" className="create-journal-btn">Create a New Mood</Link>
+                <h2>Moods for User: {user.name}</h2>
+                {moods.length > 0 ? (
+                    <>
 
-            ) : (
-                <p>No moods found for this user.</p>
-            )}
+                        {/* table starts */}
+                        <div class="table" role="table">
+                            <div class="table-thead" role="rowheader">
+                                <div class="table-row" role="row">
+                                    <div class="table-thead-col" role="columnheader">
+                                        <span class="eyebrow-heading-3">Date</span>
+                                    </div>
+                                    <div class="table-thead-col is-only-desktop" role="columnheader">
+                                        <span class="eyebrow-heading-3">Mood</span>
+                                    </div>
+                                    <div class="table-thead-col is-only-desktop" role="columnheader">
+                                        <span class="eyebrow-heading-3">Time</span>
+                                    </div>
+                                    <div class="table-thead-col is-only-desktop" role="columnheader">
+                                        <span class="eyebrow-heading-3">Content</span>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            {moods.map((mood) => (
+
+                                <>
+
+                                    <div key={mood.$id} onClick={() => handleMoodClick(journal)} class="table-tbody" role="rowgroup">
+                                        <div class="table-row" role="row">
+                                            <div class="table-col" role="cell" data-title="Name">
+                                                <div class="u-inline-flex u-cross-center u-gap-12">
+                                                    <span class="text u-break-word u-line-height-1-5">{formatDate(dateValue, mood.$createdAt)}</span>
+                                                </div>
+                                            </div>
+                                            <div class="table-col is-only-desktop" role="cell" data-title="Type">
+                                                <span class="text u-break-word u-line-height-1-5">{mood.moodValue}</span>
+                                            </div>
+                                            <div class="table-col is-only-desktop" role="cell" data-title="Size">
+                                                <time class="text">{formatDate(timeValue, mood.$createdAt)}</time>
+                                            </div>
+                                            <div class="table-col is-only-desktop" role="cell" data-title="Created">
+                                                <span class="text">{mood.moodContent} </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </>
+                            ))}
+
+
+                        </div>
+                    </>
+
+                ) : (
+                    <p>No moods found for this user.</p>
+                )}
+            </div>
+
         </div>
     );
 };

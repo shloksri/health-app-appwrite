@@ -5,6 +5,7 @@ import { useUser } from '../context/UserContext'
 import { Query } from 'appwrite';
 import { databases } from "../appwrite/config";
 import ViewYourJournal from './ViewYourJournal'
+import { dateValue, timeValue, formatDate } from '../appwrite/formatDate'
 
 const DATABASE_ID = import.meta.env.VITE_DATABASE_ID; // your Appwrite database ID
 const JOURNALS_COLLECTION_ID = import.meta.env.VITE_COLLECTION_ID_JOURNALS; // your collection ID
@@ -21,6 +22,7 @@ function Journals() {
 
     const handleJournalClick = (journal) => {
         setSelectedJournal(journal);
+        // console.log(journal)
     };
     const handleCloseView = () => {
         setSelectedJournal(null);
@@ -57,29 +59,71 @@ function Journals() {
 
     return (
         <div>
-            <br />
-            <Link to="/journals/new" className="create-journal-btn">Create a New Journal</Link>
-            <h2>Journals for User: {user.name}</h2>
-            {journals.length > 0 ? (
-                <>
-                    <ul>
-                        {journals.map((journal) => (
-                            <li key={journal.$id} onClick={() => handleJournalClick(journal)} style={{ border: "1px solid black", margin: "10px 0", cursor: "pointer" }}>
-                                <h3>Mood: {journal.journalMood}</h3>
-                                <p>{journal.journalContent.slice(0, 10)} .......</p>
-                            </li>
-                        ))}
-                    </ul>
+            <div className='box login-page-div u-flex u-flex-vertical u-main-center u-cross-center u-row-gap-48 u-margin-inline-64'>
+                <Link to="/journals/new" className="create-journal-btn">Create a New Journal</Link>
+                <h6 className='heading-level-7'>Below are your previous journals. Please click on any of them to view the details</h6>
 
-                    {/* Pass selected journal to ViewYourJournal */}
-                    {selectedJournal && (
-                        <ViewYourJournal journal={selectedJournal} onClose={handleCloseView} />
-                    )}
-                </>
+                {journals.length > 0 ? (
+                    <>
 
-            ) : (
-                <p>No journals found for this user.</p>
-            )}
+                        {/* table starts */}
+                        <div class="table" role="table">
+                            <div class="table-thead" role="rowheader">
+                                <div class="table-row" role="row">
+                                    <div class="table-thead-col" role="columnheader">
+                                        <span class="eyebrow-heading-3">Date</span>
+                                    </div>
+                                    <div class="table-thead-col is-only-desktop" role="columnheader">
+                                        <span class="eyebrow-heading-3">Mood</span>
+                                    </div>
+                                    <div class="table-thead-col is-only-desktop" role="columnheader">
+                                        <span class="eyebrow-heading-3">Time</span>
+                                    </div>
+                                    <div class="table-thead-col is-only-desktop" role="columnheader">
+                                        <span class="eyebrow-heading-3">Content</span>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            {journals.map((journal) => (
+
+                                <>
+
+                                    <div key={journal.$id} onClick={() => handleJournalClick(journal)} class="table-tbody" role="rowgroup">
+                                        <a class="table-row" role="row">
+                                            <div class="table-col" role="cell" data-title="Name">
+                                                <div class="u-inline-flex u-cross-center u-gap-12">
+                                                    <span class="text u-break-word u-line-height-1-5">{formatDate(dateValue, journal.$createdAt)}</span>
+                                                </div>
+                                            </div>
+                                            <div class="table-col is-only-desktop" role="cell" data-title="Type">
+                                                <span class="text u-break-word u-line-height-1-5">{journal.journalMood}</span>
+                                            </div>
+                                            <div class="table-col is-only-desktop" role="cell" data-title="Size">
+                                                <time class="text">{formatDate(timeValue, journal.$createdAt)}</time>
+                                            </div>
+                                            <div class="table-col is-only-desktop" role="cell" data-title="Created">
+                                                <span class="text">{journal.journalContent.slice(0, 100)} .......</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </>
+                            ))}
+
+
+                        </div>
+
+                        {/* Pass selected journal to ViewYourJournal */}
+                        {selectedJournal && (
+                            <ViewYourJournal journal={selectedJournal} onClose={handleCloseView} />
+                        )}
+                    </>
+
+                ) : (
+                    <p>No journals yet. Click on the above button to create one</p>
+                )}
+            </div>
         </div>
     );
 }

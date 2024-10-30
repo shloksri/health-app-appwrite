@@ -15,6 +15,8 @@ function CreateJournal() {
     const [journalContent, setJournalContent] = useState('');
     const [error, setError] = useState(null);
     const [success, setSuccess] = useState(null);
+    const [isSubmitted, setIsSubmitted] = useState(false);
+
 
     const handleMoodChange = (e) => setJournalMood(e.target.value);
     const handleContentChange = (e) => setJournalContent(e.target.value);
@@ -43,50 +45,74 @@ function CreateJournal() {
             setJournalContent('');
             setError(null);
             setSuccess('Journal submitted successfully!');
+            setIsSubmitted(true);
             console.log('New journal entry:', response);
+
+            // Hide the pop-up after 3 seconds
+            setTimeout(() => setIsSubmitted(false), 3000);
         } catch (err) {
             console.error('Error submitting journal:', err);
             setError('Failed to submit journal.');
             setSuccess(null);
         }
     };
+    const handleClosePopup = () => {
+        setIsSubmitted(false);
+    };
 
     return (
         <div>
-            <h2>Submit a New Journal Entry</h2>
-            <form onSubmit={handleSubmit}>
-                <div>
-                    {/* <label htmlFor="mood">Mood:</label>
-                    <input
-                        type="text"
-                        id="mood"
-                        value={journalMood}
-                        onChange={handleMoodChange}
-                        placeholder="Enter your mood"
-                    /> */}
-                    <label htmlFor="mood">Select your mood:</label>
-                    <select id="mood" value={journalMood} onChange={handleMoodChange} required>
-                        <option value="">-- Select Mood --</option>
-                        {moodsData.map(mood => (
-                            <option key={mood.id} value={mood.id}>{mood.name}</option>
-                        ))}
-                    </select>
-                </div>
+
+            <div class="box login-page-div u-flex u-flex-vertical u-main-center u-cross-center u-row-gap-48 u-margin-inline-64">
+                <h2>Submit a New Journal Entry</h2>
+                <form onSubmit={handleSubmit} class="form u-width-full-line u-row-gap-48 u-max-width-500">
+
+                    <ul class="form-list">
+                        <li class="form-item">
+                            <label htmlFor="mood">Select your mood:</label>
+                            <div class="select u-width-full-line">
+                                <select id="mood" value={journalMood} onChange={handleMoodChange} required>
+                                    <option value="">-- Select Mood --</option>
+                                    {moodsData.map(mood => (
+                                        <option key={mood.id} value={mood.name}>{mood.name}</option>
+                                    ))}
+                                </select>
+                                <span class="icon-cheveron-down" aria-hidden="true"></span>
+                            </div>
+                        </li>
+
+                        <li class="form-item">
+                            <label htmlFor="reason">Journal Content:</label>
+                            <textarea
+                                class="input-text"
+                                id="content"
+                                value={journalContent}
+                                onChange={handleContentChange}
+                                placeholder="Write your journal entry here"
+                                required
+                            />
+                        </li>
+                    </ul>
+                    <button type="submit" class='button is-secondary'>Submit Journal</button>
+                </form>
+                {error && <p style={{ color: 'red' }}>{error}</p>}
+                {isSubmitted && (
+                    <div className="popup">
+                        <span className="popup-message">Journal Submitted Successfully!</span>
+
+                        <button
+                            class="button is-text is-only-icon"
+
+                            aria-label="Remove item"
+                            onClick={handleClosePopup}
+                        >
+                            <span class="icon-x" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                )}
+            </div>
 
 
-                <div>
-                    <label htmlFor="content">Journal Content:</label>
-                    <textarea
-                        id="content"
-                        value={journalContent}
-                        onChange={handleContentChange}
-                        placeholder="Write your journal entry here"
-                    />
-                </div>
-                <button type="submit">Submit Journal</button>
-            </form>
-            {error && <p style={{ color: 'red' }}>{error}</p>}
-            {success && <p style={{ color: 'green' }}>{success}</p>}
         </div>
     );
 }
