@@ -22,7 +22,7 @@ import CreateReminder from './CreateReminder.jsx';
 const App = () => {
     const { user, setUser } = useUser()
     useEffect(() => {
-        console.log("THE USER JUST GOT UPDATED");
+        // console.log("THE USER JUST GOT UPDATED");
     }, [user])
 
     return (

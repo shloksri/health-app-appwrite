@@ -7,7 +7,7 @@ const UserContext = createContext();
 export const UserProvider = ({ children }) => {
     const [user, setUser] = useState(() => {
         const savedUser = sessionStorage.getItem('user');
-        console.log("Shlok, first check if user is stored and what is the value: ", savedUser);
+        // console.log("Shlok, first check if user is stored and what is the value: ", savedUser);
         return savedUser ? JSON.parse(savedUser) : null;
     });
 
@@ -27,7 +27,7 @@ export const UserProvider = ({ children }) => {
                 )
         }
         else {
-            console.log("Shlok we got the user from sessionStorage");
+            // console.log("Shlok we got the user from sessionStorage");
         }
     }, [user])
 

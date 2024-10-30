@@ -30,7 +30,7 @@ const MoodsList = () => {
     };
 
     useEffect(() => {
-        console.log("user ID:", user.$id);
+        // console.log("user ID:", user.$id);
         const fetchMoods = async () => {
             try {
                 const response = await databases.listDocuments(

@@ -15,7 +15,7 @@ const Home = () => {
     }
 
     useEffect(() => {
-        console.log("THIS will log if the user is deleted or changed");
+        // console.log("THIS will log if the user is deleted or changed");
     }, [user])
 
     return (

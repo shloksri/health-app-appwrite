@@ -29,7 +29,7 @@ function Journals() {
     };
 
     useEffect(() => {
-        console.log("user ID:", user.$id);
+        // console.log("user ID:", user.$id);
         const fetchJournals = async () => {
             try {
                 // Query for all journal entries where userID matches and sort by date descending

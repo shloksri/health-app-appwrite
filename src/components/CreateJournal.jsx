@@ -46,7 +46,7 @@ function CreateJournal() {
             setError(null);
             setSuccess('Journal submitted successfully!');
             setIsSubmitted(true);
-            console.log('New journal entry:', response);
+            // console.log('New journal entry:', response);
 
             // Hide the pop-up after 3 seconds
             setTimeout(() => setIsSubmitted(false), 3000);

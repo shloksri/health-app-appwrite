@@ -22,7 +22,7 @@ const MoodTracker = () => {
             const mood = moodsData.find(m => m.name === selectedMood);
             if (mood) {
                 setOneLiner(mood.description);
-                console.log("mood.description - ", mood.description);
+                // console.log("mood.description - ", mood.description);
 
                 setAnimationKey(prev => prev + 1);
             }
