@@ -20,8 +20,8 @@ const COLLECTION_ID_ALLUSERS = process.env.VITE_COLLECTION_ID_ALLUSERS
 export default async ({ req, res, log }) => {
     log(JSON.stringify(req)); // Log the entire request object
     log("req body = ", req.body.userId ? req.body.userId : "Not found")
-    log("req bodyJson = ", req.bodyJSON.userId ? req.bodyJSON.userId : "Not found")
-    log("req payload = ", req.payload.userId ? req.payloadd.userId : "Not found")
+    log("req bodyJson = ", req.bodyJson.userId ? req.bodyJson.userId : "Not found")
+    // log("req payload = ", req.payload.userId ? req.payload.userId : "Not found")
     const client = new Client();
     client
         .setEndpoint('https://cloud.appwrite.io/v1')
@@ -37,11 +37,16 @@ export default async ({ req, res, log }) => {
         log("used - req.body?.userId, userId is not defined in the payload.");
         return res.send('userId is missing');
     }
+    else {
+        log("used - req.body?.userId worked");
+    }
 
     const userIDfromjson = req.bodyJson?.userId;
     if (!userIDfromjson) {
         log("used - req.bodyJson?.userId, userId is not defined in the payload.");
         return res.send('userId is missing');
+    } else {
+        log("used - req.bodyJson?.userId worked");
     }
 
     try {
