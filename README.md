@@ -29,15 +29,20 @@ _How have you built this project? Mention the technologies/methods/platforms you
 
 This is a Full stack web application. Here is the link - https://health-app-appwrite.vercel.app/
 
-- Frontend - React JS
-- Backend - Appwrite
-- Hosting - Vercel
-- OAuth - Google
+- React for designing the frontend
+- Pink Design by Appwrite for styling
+- Google for OAuth provider
+- Mailgun - configured custom domain mg.shloksri.com to send emails to any user
+- Amazon Route53 for configuring the DNS records
+- Vercel for deployment to Production
 
 All Appwrite services used :
 - __Pink Design by Appwrite__ - The website is designed using the pink-design by appwrite. Most of the css classes used are the default ones present in the design. All components 
 - __Auth__ - For allowing users to automatically sign-up/log-in using their Google account. Currently, my project supports only Google as the OAuth2 Provider
 - __Databases__ - To store the moods/journals entered by the user. When the user logs in, they will be able to see their previous entered journals and view their details.
+- __Functions__ for updating databases and trigger emails on the event of new user registration, thus utilising __Messaging__ feature as well.  
+- __Messaging__ - To send emails to the user when they register for the first time.
+
 
 ## Project Repo  
 _Share a public repo link of your project_
@@ -47,6 +52,4 @@ https://github.com/shloksri/health-app-appwrite
 ## Demo Video/Photos  
 _Share a 2-3 minute demo video of your project_
 
-<!--
-https://www.youtube.com/watch?v=9IBaX1avYWc
--->
+https://youtu.be/lys5smBx78s
