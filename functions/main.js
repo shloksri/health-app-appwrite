@@ -28,7 +28,7 @@ export default async ({ req, res, log, error }) => {
     const database = new Databases(client);
     const users = new Users(client);
 
-    const userId = req.body.userId; // Get the user ID from the payload
+    const userId = req.payload.userId; // Get the user ID from the payload
 
     try {
         // Fetch user details using the userId
