@@ -1,14 +1,3 @@
-// export default async ({ req, res, log, error }) => {
-
-//     log("Request body - ", req.body)
-//     log("Request method - ", req.method)
-//     // error("Bhai error")
-//     const event = req.headers['x-appwrite-event'];
-//     log("Request headers: ", event)
-
-//     return res.text("Check the Appwrite Console to see logs and errors!");
-// }
-
 import { Client, Databases, Users } from "node-appwrite";
 import FormData from 'form-data';
 import Mailgun from 'mailgun.js';
@@ -22,10 +11,6 @@ const MAILGUN_DOMAIN = process.env.VITE_MAILGUN_DOMAIN;
 
 
 export default async ({ req, res, log }) => {
-    // log(JSON.stringify(req)); // Log the entire request object
-    // log("req body = ", req.body.userId ? req.body.userId : "Not found")
-    // log("req bodyJson = ", req.bodyJson.userId ? req.bodyJson.userId : "Not found")
-    // log("req payload = ", req.payload.userId ? req.payload.userId : "Not found")
     const client = new Client();
     client
         .setEndpoint('https://cloud.appwrite.io/v1')
@@ -38,9 +23,6 @@ export default async ({ req, res, log }) => {
     const mailgun = new Mailgun(FormData);
 
     const mg = mailgun.client({ username: 'api', key: MAILGUN_API_KEY });
-
-    // const mailgunClient = mailgun({ apiKey: MAILGUN_API_KEY, domain: MAILGUN_DOMAIN });
-
 
     // Access userId from the payload
     const userId = req.body?.userId; // Using optional chaining for safety
