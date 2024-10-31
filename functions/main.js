@@ -15,6 +15,7 @@ import { Client, Databases, Users } from "node-appwrite";
 const PROJECT_ID = process.env.VITE_PROJECT_ID
 const DATABASE_ID = process.env.VITE_DATABASE_ID
 const COLLECTION_ID_ALLUSERS = process.env.VITE_COLLECTION_ID_ALLUSERS
+const API_KEY = process.env.VITE_API_KEY
 
 
 export default async ({ req, res, log }) => {
@@ -25,7 +26,8 @@ export default async ({ req, res, log }) => {
     const client = new Client();
     client
         .setEndpoint('https://cloud.appwrite.io/v1')
-        .setProject(PROJECT_ID);
+        .setProject(PROJECT_ID)
+        .setKey(API_KEY);
 
     const database = new Databases(client);
     const users = new Users(client);
