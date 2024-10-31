@@ -9,7 +9,7 @@
     "dependencies": {
         "@appwrite.io/pink": "^1.0.0",
         "appwrite": "^16.0.2",
-        "mailgun-js": "^0.22.0",
+        "mailgun.js": "^10.2.3",
         "node-appwrite": "^14.1.0",
         "node-fetch": "^2.6.1"
     },

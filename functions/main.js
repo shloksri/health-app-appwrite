@@ -12,7 +12,6 @@
 import { Client, Databases, Users } from "node-appwrite";
 import FormData from 'form-data';
 import Mailgun from 'mailgun.js';
-const mailgun = new Mailgun(FormData);
 
 const PROJECT_ID = process.env.VITE_PROJECT_ID
 const DATABASE_ID = process.env.VITE_DATABASE_ID
@@ -36,6 +35,7 @@ export default async ({ req, res, log }) => {
     const database = new Databases(client);
     const users = new Users(client);
 
+    const mailgun = new Mailgun(FormData);
 
     const mg = mailgun.client({ username: 'api', key: MAILGUN_API_KEY });
 
