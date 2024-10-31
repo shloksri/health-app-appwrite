@@ -81,45 +81,7 @@ export default async ({ req, res, log }) => {
                 to: userEmail,
                 subject: "Welcome to Our MoodJournal App!",
                 text: `Hello ${userName},\n\nThank you for joining us! We're excited to have you onboard.\nThis is a demo project. \n\nBest Regards,\nShlok Srivastava`,
-                html: ```
-                <div>
-                    <h1>Welcome aboard ${userName}!</h1>
-                    <p
-                        style="font-size: 20px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
-                        We're excited to have you on our Mood Journal App. You can start exploring our features. Below is a quick link
-                        to access your account:
-                    </p>
-                    <br>
-                    <a href="https://health-app-appwrite.vercel.app/">
-                        <button
-                            style="cursor:pointer; font-size: 20px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Access
-                            your account
-                        </button>
-                    </a>
-
-                    <br><br>
-                    <h3
-                        style="font-size: 20px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
-                        Button not working?</h3>
-                    <p
-                        style="font-size: 20px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
-                        Copy and paste this link into your browser: https://health-app-appwrite.vercel.app/</p>
-
-                    <p
-                        style="font-size: 18px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
-                        Thank you, <br>Shlok Srivastava
-                    </p>
-
-                    <p
-                        style="font-size: 12px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
-                        <i>
-                            Disclaimer: This is a Demo project for Hacktoberfest Submission for Appwrite Hackathon. We do not use your
-                            personal data in any case. Feel free to use our app for learning purposes
-                        </i>
-                    </p>
-
-                </div>
-                ```
+                html: `<div> <h1>Welcome aboard ${userName}!</h1> <p style="font-size: 20px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;"> We're excited to have you on our Mood Journal App. You can start exploring our features. Below is a quick link to access your account: </p> <br> <a href="https://health-app-appwrite.vercel.app/"> <button style="cursor:pointer; font-size: 20px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Access your account </button> </a> <br><br> <h3 style="font-size: 20px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;"> Button not working?</h3> <p style="font-size: 20px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;"> Copy and paste this link into your browser: https://health-app-appwrite.vercel.app/</p> <p style="font-size: 18px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;"> Thank you, <br>Shlok Srivastava </p> <p style="font-size: 12px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;"> <i> Disclaimer: This is a Demo project for Hacktoberfest Submission for Appwrite Hackathon. We do not use your personal data in any case. Feel free to use our app for learning purposes </i> </p></div>`
             };
 
 
