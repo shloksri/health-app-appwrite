@@ -22,7 +22,7 @@ const MAILGUN_DOMAIN = process.env.VITE_MAILGUN_DOMAIN;
 
 
 export default async ({ req, res, log }) => {
-    log(JSON.stringify(req)); // Log the entire request object
+    // log(JSON.stringify(req)); // Log the entire request object
     // log("req body = ", req.body.userId ? req.body.userId : "Not found")
     // log("req bodyJson = ", req.bodyJson.userId ? req.bodyJson.userId : "Not found")
     // log("req payload = ", req.payload.userId ? req.payload.userId : "Not found")
