@@ -10,9 +10,9 @@
 // }
 
 import { Client, Databases, Users } from "node-appwrite";
-const formData = require('form-data');
-const Mailgun = require('mailgun.js');
-const mailgun = new Mailgun(formData);
+import FormData from 'form-data';
+import Mailgun from 'mailgun.js';
+const mailgun = new Mailgun(FormData);
 
 const PROJECT_ID = process.env.VITE_PROJECT_ID
 const DATABASE_ID = process.env.VITE_DATABASE_ID
