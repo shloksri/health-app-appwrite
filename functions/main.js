@@ -75,21 +75,17 @@ export default async ({ req, res, log }) => {
             );
             log(`User added: ${userId} ${userEmail}`);
             // Send welcome email
-            // const message = {
-            //     from: `Welcome Team <welcome@${MAILGUN_DOMAIN}>`,
-            //     to: userEmail,
-            //     subject: "Welcome to Our App!",
-            //     text: `Hello ${userName},\n\nThank you for joining us! We're excited to have you onboard.\nThis is a demo project. \n\nBest Regards,\nShlok Srivastava`
-            // };
 
-
-            mg.messages.create(MAILGUN_DOMAIN, {
+            const message = {
                 from: `Welcome Team <welcome@${MAILGUN_DOMAIN}>`,
                 to: userEmail,
                 subject: "Welcome to Our MoodJournal App!",
                 text: `Hello ${userName},\n\nThank you for joining us! We're excited to have you onboard.\nThis is a demo project. \n\nBest Regards,\nShlok Srivastava`,
                 html: `<h1>Hello ${userName}</h1>,\n\n<i>Thank you for joining us!</i> We're excited to have you onboard.\nThis is a demo project. \n\nBest Regards,\nShlok Srivastava`
-            })
+            };
+
+
+            await mg.messages.create(MAILGUN_DOMAIN, message)
                 .then(msg => console.log(msg)) // logs response data
                 .catch(err => console.error(err)); // logs any error
 
